@@ -1226,7 +1226,6 @@ void GCS_MAVLINK_Plane::handleMessage(const mavlink_message_t &msg)
           Vector3f neu = Vector3f(packet.x*100, packet.y*100, -packet.z*100);
           Location target(neu, Location::AltFrame::ABOVE_ORIGIN);
           plane.next_WP_loc = target;
-          plane.next_WP_loc.alt = -packet.z*100.0+plane.home.alt;
         }
         //gcs().send_text(MAV_SEVERITY_INFO, "Change alt to %.1f", (double)((plane.next_WP_loc.alt - plane.home.alt)*0.01));
  
